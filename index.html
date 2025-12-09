@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rishabh Labs | Future Tech</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Rishabh Labs is a premium software development agency specializing in Web3, AI Automation, and High-Performance Web/Mobile Applications.">
+    <meta name="keywords" content="Software Development, Web3, AI, Blockchain, React, Mobile Apps, Tech Agency, Digital Transformation">
+    <meta name="author" content="Rishabh Labs">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rishabh Labs | Future Tech">
+    <meta property="og:description" content="Premium software development agency specializing in Web3, AI, and Mobile Apps.">
+    <meta property="og:site_name" content="Rishabh Labs">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rishabh Labs | Future Tech">
+    <meta name="twitter:description" content="Premium software development agency specializing in Web3, AI, and Mobile Apps.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            colors: {
+              primary: '#9333ea', // Purple 600
+              secondary: '#e11d48', // Rose 600
+              accent: '#f97316', // Orange 500
+              dark: '#000000', // Pure Black
+              surface: '#0a0a0a', // Almost Black
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+              'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #9333ea 0deg, #f97316 180deg, #e11d48 360deg)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #000000;
+        color: #f8fafc;
+        overflow-x: hidden;
+      }
+      /* Hide scrollbar for clean UI in some sections */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
