@@ -48,9 +48,10 @@ function App() {
               }
             />
             <Projects />
-            <Testimonials />
+
             <Pricing onSelectService={setSelectedService} />
             <BusinessBundle onSelectService={setSelectedService} />
+            <Testimonials />
             <FAQ />
             <Contact selectedService={selectedService} />
           </>
