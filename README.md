@@ -28,17 +28,20 @@ A premium, futuristic software development agency website featuring a capsule na
 ## 📦 Installation & Setup
 
 1.  **Clone the repository**
+
     ```bash
     git clone https://github.com/rishabhrthr001/rishabh-labs.git
     cd rishabh-labs
     ```
 
 2.  **Install Dependencies**
+
     ```bash
     npm install
     ```
 
 3.  **Run Development Server**
+
     ```bash
     npm start
     # or if using Vite
@@ -77,13 +80,17 @@ A premium, futuristic software development agency website featuring a capsule na
 ## 🎨 Customization Guide
 
 ### Changing Content
+
 All text, pricing, services, and projects are stored in `src/data/content.ts`.
+
 - **To add a project**: Add a new object to the `PROJECTS` array.
 - **To update prices**: Modify `SERVICE_PRICES` or `BUSINESS_BUNDLES`.
 - **To change contact email logic**: Update logic in `components/Contact.tsx`.
 
 ### Changing Colors
+
 The theme is defined in the Tailwind config script tag within `index.html`.
+
 - **Primary**: Purple (`#9333ea`)
 - **Secondary**: Rose (`#e11d48`)
 - **Accent**: Orange (`#f97316`)
@@ -91,9 +98,11 @@ The theme is defined in the Tailwind config script tag within `index.html`.
 Modify the `colors` object in the Tailwind config to swap the palette (e.g., to Blue/Cyan).
 
 ## 📄 Pages Included
+
 - **Home**: Single-page smooth scroll layout with all main sections.
 - **Service Details**: Dedicated detailed views for Web Dev, Mobile Apps, Full Stack, etc.
 - **Legal**: Privacy Policy, Terms of Service, Cookie Policy.
 
 ## 📝 License
+
 This project is proprietary software of Rishabh Labs. All rights reserved.

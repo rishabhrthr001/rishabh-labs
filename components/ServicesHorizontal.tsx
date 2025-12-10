@@ -21,7 +21,6 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
     return () => window.removeEventListener("resize", updateMobile);
   }, []);
 
-  // Scroll Hijack: Convert vertical scroll to horizontal (both directions)
   useEffect(() => {
     if (isMobile || !scrollRef.current || !sectionRef.current) return;
 
@@ -37,17 +36,15 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
         scroller.scrollLeft + scroller.clientWidth >=
         scroller.scrollWidth - endThreshold;
 
-      const goingDown = e.deltaY > 0; // scroll forward
-      const goingUp = e.deltaY < 0; // scroll backward
+      const goingDown = e.deltaY > 0;
+      const goingUp = e.deltaY < 0;
 
-      // SCROLL RIGHT (down) until end
       if (goingDown && !atEnd) {
         e.preventDefault();
         scroller.scrollLeft += e.deltaY;
         return;
       }
 
-      // SCROLL LEFT (up) until start
       if (goingUp && !atStart) {
         e.preventDefault();
         scroller.scrollLeft += e.deltaY;
@@ -73,19 +70,20 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-2 md:mb-4">
             Our Expertise
           </h2>
+
           <p className="text-gray-400 text-xs md:text-base block">
             Scroll to explore our full range of technical capabilities.
           </p>
         </div>
 
-        {/* Horizontal Scroll Content */}
+        {/* Horizontal Scroll */}
         <div
           ref={scrollRef}
           className={`
             flex gap-6 md:gap-8 px-4 md:px-28 z-10 items-center
             ${
               isMobile
-                ? "overflow-x-auto snap-x snap-mandatory pb-10 pt-20 w-full no-scrollbar"
+                ? "overflow-x-auto snap-x snap-mandatory pb-10 pt-32 w-full no-scrollbar"
                 : "overflow-x-scroll overflow-y-hidden no-scrollbar h-full"
             }
           `}
@@ -110,22 +108,18 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
               </div>
 
               <div className="relative z-10 h-full flex flex-col">
-                {/* Icon */}
                 <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-5 border border-white/5 group-hover:border-accent/30 group-hover:bg-accent/20 transition-colors">
                   <service.icon className="w-6 h-6 text-accent" />
                 </div>
 
-                {/* Title */}
                 <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-3">
                   {service.title}
                 </h3>
 
-                {/* Description */}
                 <p className="text-xs md:text-sm text-gray-400 leading-relaxed mb-4 flex-grow line-clamp-3">
                   {service.shortDescription}
                 </p>
 
-                {/* Features */}
                 <ul className="space-y-2 mb-4">
                   {service.features?.slice(0, 3).map((feature, idx) => (
                     <li
@@ -138,7 +132,6 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
                   ))}
                 </ul>
 
-                {/* CTA */}
                 <button
                   onClick={() => onLearnMore(service.id)}
                   className="mt-auto border-t border-white/5 pt-3 flex items-center gap-1.5 text-xs md:text-sm font-bold text-white hover:text-accent transition-colors"
