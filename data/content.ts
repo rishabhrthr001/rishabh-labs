@@ -120,7 +120,7 @@ export const PROJECTS: Project[] = [
     title: "CodeTogether",
     description:
       "A collaborative DSA problem-solving platform where multiple users can join a shared coding room using an invite code. Enables real-time collaboration on a single problem, allowing participants to solve, discuss, and debug together through a seamless room-based system.",
-    image: "codeTogether.png",
+    image: "/codeTogether.png",
     techStack: ["React", "Node.js", "Express", "Socket.io", "MongoDB"],
     link: "https://code-together-rzis.vercel.app",
   },
@@ -129,7 +129,7 @@ export const PROJECTS: Project[] = [
     title: "BlockPay",
     description:
       "A Web3-based crypto payment platform enabling secure wallet-to-wallet transactions using smart contracts. Integrates decentralized wallets to support on-chain payments with transaction tracking and transparency.",
-    image: "blockpay.png",
+    image: "/blockpay.png",
     techStack: ["React", "Solidity", "Web3.js", "Node.js", "Ethereum"],
     link: "https://block-pay-9v2f.vercel.app/",
   },
