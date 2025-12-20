@@ -67,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           }}
           className="hidden lg:block text-2xl font-bold text-white"
         >
-          Rishabh <span className="text-accent">Labs</span>
+          Code<span className="text-accent">Kea</span>
         </a>
 
         {/* SM + MD — Only Home | Work | Contact */}

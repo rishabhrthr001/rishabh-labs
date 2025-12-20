@@ -36,7 +36,7 @@ function App() {
         {currentView.type === "home" && (
           <>
             <SEO
-              title="Rishabh Labs | Future-Proof Software Development"
+              title="CodeKea | Future-Proof Software Development"
               description="Premium software development agency specializing in Web3, AI Automation, Mobile Apps, and High-Performance Websites. Transform your business today."
               image="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop"
             />

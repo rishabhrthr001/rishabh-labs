@@ -60,7 +60,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "CEO",
     company: "FinTech Nova",
     content:
-      "Rishabh Labs didn't just build our platform; they architected our entire digital strategy. The Web3 integration is seamless, and our user engagement has doubled since launch.",
+      "CodeKea didn't just build our platform; they architected our entire digital strategy. The Web3 integration is seamless, and our user engagement has doubled since launch.",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop",
   },
@@ -440,7 +440,7 @@ export const BUSINESS_BUNDLES = [
 
 export const ABOUT_CONTENT = {
   story:
-    "Founded in 2024, Rishabh Labs emerged from a vision to bridge the gap between complex emerging technologies and practical business applications. What started as a small team of passionate developers has grown into a full-service digital agency known for delivering 'future-proof' solutions.",
+    "Founded in 2025, CodeKea emerged from a vision to bridge the gap between complex emerging technologies and practical business applications. What started as a small team of passionate developers has grown into a full-service digital agency known for delivering 'future-proof' solutions.",
   stats: [
     { label: "Projects Delivered", value: "50+", icon: Trophy },
     { label: "Happy Clients", value: "100%", icon: Users },
@@ -487,9 +487,9 @@ export const LEGAL_CONTENT = {
   privacy: {
     title: "Privacy Policy",
     content: `
-      Last Updated: October 2023
+      Last Updated:  2025
 
-      At Rishabh Labs, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclosure, and safeguard your information when you visit our website.
+      At CodeKea, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclosure, and safeguard your information when you visit our website.
 
       1. Information Collection
       We may collect information about you in a variety of ways. The information we may collect on the Site includes personal data such as name, email address, and demographic information that you voluntarily give to us when you register with the Site or choose to participate in various activities related to the Site.
@@ -511,10 +511,10 @@ export const LEGAL_CONTENT = {
   terms: {
     title: "Terms of Service",
     content: `
-      Last Updated: October 2023
+      Last Updated:  2025
 
       1. Agreement to Terms
-      These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Rishabh Labs ("we," "us" or "our"), concerning your access to and use of our website.
+      These Terms of Use constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and codeKea ("we," "us" or "our"), concerning your access to and use of our website.
 
       2. Intellectual Property Rights
       Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the "Content") and the trademarks, service marks, and logos contained therein (the "Marks") are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws.
@@ -536,9 +536,9 @@ export const LEGAL_CONTENT = {
   cookie: {
     title: "Cookie Policy",
     content: `
-      Last Updated: October 2023
+      Last Updated:  2025
 
-      This Cookie Policy explains how Rishabh Labs ("we", "us", and "our") uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
+      This Cookie Policy explains how codeKea ("we", "us", and "our") uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
 
       1. What are cookies?
       Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.

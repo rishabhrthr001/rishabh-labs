@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
-import { LEGAL_CONTENT } from '../data/content';
-import SEO from './SEO';
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import { LEGAL_CONTENT } from "../data/content";
+import SEO from "./SEO";
 
 interface LegalPageProps {
-  pageId: 'privacy' | 'terms' | 'cookie';
+  pageId: "privacy" | "terms" | "cookie";
   onBack: () => void;
 }
 
@@ -25,8 +25,8 @@ const LegalPage: React.FC<LegalPageProps> = ({ pageId, onBack }) => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-dark text-white pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
-      <SEO 
-        title={`${content.title} | Rishabh Labs`} 
+      <SEO
+        title={`${content.title} | CodeKea`}
         description={`Read our ${content.title} to understand our policies and your rights.`}
       />
 
@@ -37,19 +37,20 @@ const LegalPage: React.FC<LegalPageProps> = ({ pageId, onBack }) => {
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[length:40px_40px] pointer-events-none" />
 
       <div className="max-w-3xl mx-auto relative z-10">
-        <button 
-            onClick={onBack}
-            className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
         >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" /> Back to Home
+          <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />{" "}
+          Back to Home
         </button>
 
         <h1 className="text-3xl md:text-5xl font-display font-bold text-white mb-8">
-            {content.title}
+          {content.title}
         </h1>
 
         <div className="prose prose-invert prose-lg max-w-none text-gray-300 whitespace-pre-line leading-relaxed p-8 bg-surface/50 border border-white/10 rounded-3xl backdrop-blur-sm">
-            {content.content}
+          {content.content}
         </div>
       </div>
     </motion.div>

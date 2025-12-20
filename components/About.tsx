@@ -21,8 +21,8 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
       className="min-h-screen bg-dark text-white pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
       <SEO
-        title="About Us | Rishabh Labs"
-        description="Learn about Rishabh Labs, a forward-thinking software agency bridging the gap between emerging tech and practical business solutions."
+        title="About Us | Code By Choice"
+        description="Learn about Code By Choice, a forward-thinking software agency bridging the gap between emerging tech and practical business solutions."
       />
 
       {/* Background Gradients */}
@@ -45,7 +45,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6">
             About{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-500">
-              Rishabh Labs
+              Code By Choice
             </span>
           </h1>
 
