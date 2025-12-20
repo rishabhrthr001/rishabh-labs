@@ -129,7 +129,7 @@ export const PROJECTS: Project[] = [
     title: "BlockPay",
     description:
       "A Web3-based crypto payment platform enabling secure wallet-to-wallet transactions using smart contracts. Integrates decentralized wallets to support on-chain payments with transaction tracking and transparency.",
-    image: "/blockpay.png",
+    image: "/blockPay.png",
     techStack: ["React", "Solidity", "Web3.js", "Node.js", "Ethereum"],
     link: "https://block-pay-9v2f.vercel.app/",
   },
