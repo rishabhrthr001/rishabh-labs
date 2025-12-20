@@ -135,7 +135,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         <div className="border-t border-white/10 pt-8 flex justify-center items-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Rishabh Labs. All rights reserved.
+            © {new Date().getFullYear()} CodeKea. All rights reserved.
           </p>
         </div>
       </div>

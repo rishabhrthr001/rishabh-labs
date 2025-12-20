@@ -117,23 +117,21 @@ export const FAQS: FAQItem[] = [
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Magma DEX",
+    title: "CodeTogether",
     description:
-      "A high-frequency decentralized exchange featuring real-time liquidity pools and automated market making with a glassmorphism UI.",
-    image:
-      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop",
-    techStack: ["React", "Solidity", "Web3.js", "Framer Motion"],
-    link: "#",
+      "A collaborative DSA problem-solving platform where multiple users can join a shared coding room using an invite code. Enables real-time collaboration on a single problem, allowing participants to solve, discuss, and debug together through a seamless room-based system.",
+    image: "data/codetogether.png",
+    techStack: ["React", "Node.js", "Express", "Socket.io", "MongoDB"],
+    link: "https://code-together-rzis.vercel.app",
   },
   {
     id: 2,
-    title: "Inferno Analytics",
+    title: "BlockPay",
     description:
-      "AI-powered dashboard processing millions of data points to predict market trends with 99% accuracy.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
-    techStack: ["Next.js", "Python", "TensorFlow", "D3.js"],
-    link: "#",
+      "A Web3-based crypto payment platform enabling secure wallet-to-wallet transactions using smart contracts. Integrates decentralized wallets to support on-chain payments with transaction tracking and transparency.",
+    image: "data/blockpay.png",
+    techStack: ["React", "Solidity", "Web3.js", "Node.js", "Ethereum"],
+    link: "https://block-pay-9v2f.vercel.app/",
   },
   {
     id: 3,
@@ -307,6 +305,7 @@ export const SERVICE_PRICES = [
       "Contact Form",
       "Social Integration",
       "1 Month Support",
+      "3-4 Days Delivery",
     ],
   },
   {
@@ -321,6 +320,7 @@ export const SERVICE_PRICES = [
       "Design System",
       "User Flow Maps",
       "Developer Handover",
+      "1-2 Week Delivery",
     ],
   },
   {
@@ -335,6 +335,7 @@ export const SERVICE_PRICES = [
       "Push Notifications",
       "Basic API Logic",
       "Store Submission",
+      "3-4 Week Delivery",
     ],
   },
   {
@@ -349,6 +350,7 @@ export const SERVICE_PRICES = [
       "Workflow Automation",
       "Data Analysis Tool",
       "Model Training",
+      "3-4 Week Delivery",
     ],
   },
   {
@@ -363,6 +365,7 @@ export const SERVICE_PRICES = [
       "Minting Website",
       "Gas Optimization",
       "Security Basic Check",
+      "5-6 Week Delivery",
     ],
   },
   {
@@ -377,6 +380,7 @@ export const SERVICE_PRICES = [
       "Admin Dashboard",
       "Adv. Authentication",
       "Cloud Deployment",
+      "6-8 Week Delivery",
     ],
   },
 ];
@@ -444,7 +448,7 @@ export const ABOUT_CONTENT = {
   stats: [
     { label: "Projects Delivered", value: "50+", icon: Trophy },
     { label: "Happy Clients", value: "100%", icon: Users },
-    { label: "Years Experience", value: "5+", icon: Clock },
+    { label: "Years Experience", value: "1+", icon: Clock },
     { label: "Technologies", value: "20+", icon: Code },
   ],
   values: [
