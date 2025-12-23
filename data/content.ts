@@ -117,6 +117,25 @@ export const FAQS: FAQItem[] = [
 export const PROJECTS: Project[] = [
   {
     id: 1,
+    title: "Apex E-commerce",
+    description:
+      "A modern eCommerce web application built with React and TypeScript, offering product browsing, cart management, and a smooth checkout experience with a focus on clean UI and scalability.",
+    image: "/apex.png",
+    techStack: ["React", "TypeScript", "Vite", "Context API", "CSS"],
+    link: "https://apex-pearl.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Digital Agency Gold",
+    description:
+      "A modern digital agency website showcasing branding, web development, and marketing services with a sleek UI, smooth animations, and a conversion-focused layout.",
+    image: "/digitalAgency.png",
+    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    link: "https://digital-agency-gold.vercel.app/",
+  },
+
+  {
+    id: 3,
     title: "CodeTogether",
     description:
       "A collaborative DSA problem-solving platform where multiple users can join a shared coding room using an invite code. Enables real-time collaboration on a single problem, allowing participants to solve, discuss, and debug together through a seamless room-based system.",
@@ -125,23 +144,13 @@ export const PROJECTS: Project[] = [
     link: "https://code-together-rzis.vercel.app",
   },
   {
-    id: 2,
+    id: 4,
     title: "BlockPay",
     description:
       "A Web3-based crypto payment platform enabling secure wallet-to-wallet transactions using smart contracts. Integrates decentralized wallets to support on-chain payments with transaction tracking and transparency.",
     image: "/blockPay.png",
     techStack: ["React", "Solidity", "Web3.js", "Node.js", "Ethereum"],
     link: "https://block-pay-9v2f.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Urban Pulse",
-    description:
-      "Smart city navigation system integrating AR overlays for real-time transit and event data.",
-    image:
-      "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2938&auto=format&fit=crop",
-    techStack: ["React Native", "Node.js", "GraphQL", "Mapbox"],
-    link: "#",
   },
 ];
 
