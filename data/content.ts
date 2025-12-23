@@ -133,7 +133,6 @@ export const PROJECTS: Project[] = [
     techStack: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     link: "https://digital-agency-gold.vercel.app/",
   },
-
   {
     id: 3,
     title: "CodeTogether",
@@ -142,15 +141,6 @@ export const PROJECTS: Project[] = [
     image: "/codeTogether.png",
     techStack: ["React", "Node.js", "Express", "Socket.io", "MongoDB"],
     link: "https://code-together-rzis.vercel.app",
-  },
-  {
-    id: 4,
-    title: "BlockPay",
-    description:
-      "A Web3-based crypto payment platform enabling secure wallet-to-wallet transactions using smart contracts. Integrates decentralized wallets to support on-chain payments with transaction tracking and transparency.",
-    image: "/blockPay.png",
-    techStack: ["React", "Solidity", "Web3.js", "Node.js", "Ethereum"],
-    link: "https://block-pay-9v2f.vercel.app/",
   },
 ];
 
