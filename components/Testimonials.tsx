@@ -18,7 +18,7 @@ const Testimonials: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
             Trusted by{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-500">
-              Visionaries
+              Businesses
             </span>
           </h2>
         </div>
@@ -36,18 +36,11 @@ const Testimonials: React.FC = () => {
             >
               <Quote className="absolute top-8 right-8 w-10 h-10 text-white/5" />
 
-              <div className="flex items-center gap-4 mb-6">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover ring-2 ring-purple-500/20"
-                />
-                <div>
-                  <h4 className="text-white font-bold">{t.name}</h4>
-                  <p className="text-sm text-gray-400">
-                    {t.role} @ {t.company}
-                  </p>
-                </div>
+              <div className="mb-6">
+                <h4 className="text-white font-bold">{t.name}</h4>
+                <p className="text-sm text-gray-400">
+                  {t.role} @ {t.company}
+                </p>
               </div>
 
               <p className="text-gray-300 leading-relaxed italic">
@@ -58,42 +51,23 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Mobile Carousel */}
-        <div
-          className="
-            md:hidden
-            flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar
-            pb-4 pt-2
-          "
-        >
-          {TESTIMONIALS.map((t, index) => (
+        <div className="md:hidden flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 pt-2">
+          {TESTIMONIALS.map((t) => (
             <motion.div
               key={t.id}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
               viewport={{ once: true }}
-              className="
-                snap-center flex-shrink-0
-                w-[90vw]
-                bg-surface/50 border border-white/10
-                p-6 rounded-3xl relative
-                hover:bg-white/5 transition-colors
-              "
+              className="snap-center flex-shrink-0 w-[90vw] bg-surface/50 border border-white/10 p-6 rounded-3xl relative hover:bg-white/5 transition-colors"
             >
               <Quote className="absolute top-6 right-6 w-8 h-8 text-white/5" />
 
-              <div className="flex items-center gap-4 mb-4">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-10 h-10 rounded-full object-cover ring-2 ring-purple-500/20"
-                />
-                <div>
-                  <h4 className="text-white font-bold text-sm">{t.name}</h4>
-                  <p className="text-xs text-gray-400">
-                    {t.role} @ {t.company}
-                  </p>
-                </div>
+              <div className="mb-4">
+                <h4 className="text-white font-bold text-sm">{t.name}</h4>
+                <p className="text-xs text-gray-400">
+                  {t.role} @ {t.company}
+                </p>
               </div>
 
               <p className="text-gray-300 text-sm leading-relaxed italic">

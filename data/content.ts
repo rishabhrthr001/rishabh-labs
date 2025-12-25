@@ -56,33 +56,31 @@ export const TECH_STACK = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    name: "Sarah Jenkins",
-    role: "CEO",
-    company: "FinTech Nova",
+    name: "Ankit Sharma",
+    role: "Founder",
+    company: "GrowKart Solutions, Delhi",
     content:
-      "CodeKea didn't just build our platform; they architected our entire digital strategy. The Web3 integration is seamless, and our user engagement has doubled since launch.",
+      "CodeKea helped us build a clean and professional website within our budget. Communication was smooth and the delivery was on time. Highly reliable team.",
     avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1603415526960-f7e0328f7b0c?q=80&w=150&auto=format&fit=crop",
   },
   {
     id: 2,
-    name: "David Chen",
-    role: "Founder",
-    company: "Urban Eats",
+    name: "Rajesh Rathore",
+    role: "Owner",
+    company: "Shree Hardev Packers, Indore",
     content:
-      "We needed a complex mobile app with real-time tracking in under 3 months. The team delivered ahead of schedule with code quality that our investors praised.",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop",
+      "We required a mobile-friendly business website and CodeKea delivered exactly what we needed. The team understood our requirements well and executed them efficiently.",
   },
   {
     id: 3,
-    name: "Elena Rodriguez",
-    role: "Marketing Director",
-    company: "Luxor Retail",
+    name: "Priya Mehta",
+    role: "Marketing Head",
+    company: "UrbanNest Interiors, Mumbai",
     content:
-      "The aesthetic sensibility this team brings is unmatched. They turned our boring e-commerce site into an immersive 3D experience that customers love.",
+      "The website redesign helped improve our online presence significantly. The design was modern, fast, and aligned well with our brand.",
     avatar:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?q=80&w=150&auto=format&fit=crop",
   },
 ];
 
@@ -295,7 +293,7 @@ export const SERVICE_PRICES = [
   {
     id: 1,
     name: "Web Design",
-    price: "$299",
+    price: "₹11,999",
     description: "Landing pages & portfolios.",
     icon: Layout,
     features: [
@@ -310,7 +308,7 @@ export const SERVICE_PRICES = [
   {
     id: 2,
     name: "Product Design",
-    price: "$399",
+    price: "₹13,999",
     description: "UI/UX & Prototyping.",
     icon: Box,
     features: [
@@ -325,7 +323,7 @@ export const SERVICE_PRICES = [
   {
     id: 3,
     name: "Mobile Apps",
-    price: "$899",
+    price: "₹42,999",
     description: "iOS & Android Apps.",
     icon: Smartphone,
     features: [
@@ -340,7 +338,7 @@ export const SERVICE_PRICES = [
   {
     id: 4,
     name: "AI Solutions",
-    price: "$999",
+    price: "₹35,999",
     description: "Chatbots & Automation.",
     icon: Cpu,
     features: [
@@ -355,7 +353,7 @@ export const SERVICE_PRICES = [
   {
     id: 5,
     name: "Web3 dApps",
-    price: "$1,299",
+    price: "₹69,999",
     description: "Smart Contracts & NFTs.",
     icon: Code,
     features: [
@@ -370,7 +368,7 @@ export const SERVICE_PRICES = [
   {
     id: 6,
     name: "Full Stack",
-    price: "$1,499",
+    price: "₹39,999",
     description: "Complex Platforms.",
     icon: Server,
     features: [
@@ -388,7 +386,7 @@ export const BUSINESS_BUNDLES = [
   {
     id: "startup",
     title: "Kickstarter Pack",
-    price: "$1,200",
+    price: "₹49,999",
     subtitle: "Launch your idea",
     description:
       "Get your business online instantly with a powerful web and mobile presence.",
@@ -406,7 +404,7 @@ export const BUSINESS_BUNDLES = [
   {
     id: "growth",
     title: "Growth Accelerator",
-    price: "$2,400",
+    price: "₹89,999",
     subtitle: "Scale your operations",
     description:
       "A complete digital transformation suite. Perfect for growing businesses needing control.",
@@ -424,7 +422,7 @@ export const BUSINESS_BUNDLES = [
   {
     id: "enterprise",
     title: "Market Dominator",
-    price: "$4,500+",
+    price: "₹1,11,999",
     subtitle: "Rule your industry",
     description:
       "Full-scale custom development with AI integration and automation tools.",
