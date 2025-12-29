@@ -1,5 +1,12 @@
 import React from "react";
-import { Twitter, Linkedin, Github, Instagram } from "lucide-react";
+import {
+  Twitter,
+  Linkedin,
+  Github,
+  Instagram,
+  Mail,
+  Phone,
+} from "lucide-react";
 import { NAV_LINKS } from "../data/content";
 
 interface FooterProps {
@@ -26,10 +33,31 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             >
               Code<span className="text-accent">Kea</span>
             </a>
-            <p className="text-gray-400 max-w-sm mb-6">
+
+            <p className="text-gray-400 max-w-sm mb-4">
               Empowering businesses with future-proof digital solutions. From
               simple websites to complex blockchain architectures.
             </p>
+
+            {/* Contact Info */}
+            <div className="space-y-2 mb-6">
+              <a
+                href="mailto:contact@codekea.com"
+                className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors text-sm w-fit"
+              >
+                <Mail className="w-4 h-4" />
+                contact@codekea.com
+              </a>
+
+              <a
+                href="tel:+918447351776"
+                className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors text-sm w-fit"
+              >
+                <Phone className="w-4 h-4" />
+                +91-8447351776
+              </a>
+            </div>
+
             <div className="flex gap-4">
               <a
                 href="#"
@@ -77,7 +105,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                         window.scrollTo(0, 0);
                       } else {
                         onNavigate({ type: "home" });
-                        // Small delay to allow home view to mount
                         setTimeout(() => {
                           const element = document.querySelector(link.href);
                           if (element) {

@@ -15,6 +15,7 @@ import LegalPage from "./components/LegalPage";
 import About from "./components/About";
 import SEO from "./components/SEO";
 import { PageView } from "./types";
+import FloatingContact from "./components/FloatingContact";
 
 function App() {
   const [selectedService, setSelectedService] = useState("web-dev");
@@ -75,6 +76,7 @@ function App() {
       </main>
 
       <Footer onNavigate={handleNavigate} />
+      <FloatingContact />
     </div>
   );
 }

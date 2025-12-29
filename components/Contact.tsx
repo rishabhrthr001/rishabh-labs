@@ -12,9 +12,11 @@ const Contact: React.FC<ContactProps> = ({ selectedService }) => {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
+    phone: "",
     service: "web-dev",
     message: "",
   });
+
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -36,13 +38,13 @@ const Contact: React.FC<ContactProps> = ({ selectedService }) => {
         {
           from_name: formState.name,
           from_email: formState.email,
+          phone: formState.phone,
           service: formState.service,
           message: formState.message,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
-      // ✅ GOOGLE ADS CONVERSION — ONLY ADDITION
       if ((window as any).gtag) {
         (window as any).gtag("event", "conversion", {
           send_to: "AW-17742009470/uP_3CIrIzcIbEP6ohoxC",
@@ -55,6 +57,7 @@ const Contact: React.FC<ContactProps> = ({ selectedService }) => {
       setFormState({
         name: "",
         email: "",
+        phone: "",
         service: "web-dev",
         message: "",
       });
@@ -121,6 +124,21 @@ const Contact: React.FC<ContactProps> = ({ selectedService }) => {
                   value={formState.email}
                   onChange={(e) =>
                     setFormState({ ...formState, email: e.target.value })
+                  }
+                  required
+                  className="w-full px-4 py-3 bg-black/60 border border-white/10 rounded-xl text-white"
+                />
+              </div>
+
+              <div className="space-y-2 md:col-span-2">
+                <label className="text-sm font-medium text-gray-300">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  value={formState.phone}
+                  onChange={(e) =>
+                    setFormState({ ...formState, phone: e.target.value })
                   }
                   required
                   className="w-full px-4 py-3 bg-black/60 border border-white/10 rounded-xl text-white"
