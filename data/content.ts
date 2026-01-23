@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import { Project, Service, PricingPlan, Testimonial, FAQItem } from "../types";
 
+/* ================= NAV ================= */
+
 export const NAV_LINKS = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "about" },
@@ -29,6 +31,8 @@ export const NAV_LINKS = [
   { name: "Business", href: "#bundle" },
   { name: "Contact", href: "#contact" },
 ];
+
+/* ================= TECH ================= */
 
 export const TECH_STACK = [
   "React",
@@ -53,6 +57,8 @@ export const TECH_STACK = [
   "Stripe",
 ];
 
+/* ================= TESTIMONIALS ================= */
+
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
@@ -61,8 +67,6 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "GrowKart Solutions, Delhi",
     content:
       "CodeKea helped us build a clean and professional website within our budget. Communication was smooth and the delivery was on time. Highly reliable team.",
-    avatar:
-      "https://images.unsplash.com/photo-1603415526960-f7e0328f7b0c?q=80&w=150&auto=format&fit=crop",
   },
   {
     id: 2,
@@ -79,10 +83,10 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "UrbanNest Interiors, Mumbai",
     content:
       "The website redesign helped improve our online presence significantly. The design was modern, fast, and aligned well with our brand.",
-    avatar:
-      "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?q=80&w=150&auto=format&fit=crop",
   },
 ];
+
+/* ================= FAQ ================= */
 
 export const FAQS: FAQItem[] = [
   {
@@ -112,6 +116,8 @@ export const FAQS: FAQItem[] = [
   },
 ];
 
+/* ================= PROJECTS (WITH ALT TEXT) ================= */
+
 export const PROJECTS: Project[] = [
   {
     id: 1,
@@ -119,6 +125,7 @@ export const PROJECTS: Project[] = [
     description:
       "A modern eCommerce web application built with React and TypeScript, offering product browsing, cart management, and a smooth checkout experience with a focus on clean UI and scalability.",
     image: "/apex.png",
+    alt: "Apex eCommerce website homepage UI built by CodeKea using React and TypeScript",
     techStack: ["React", "TypeScript", "Vite", "Context API", "CSS"],
     link: "https://apex-pearl.vercel.app/",
   },
@@ -128,6 +135,7 @@ export const PROJECTS: Project[] = [
     description:
       "A modern digital agency website showcasing branding, web development, and marketing services with a sleek UI, smooth animations, and a conversion-focused layout.",
     image: "/digitalAgency.png",
+    alt: "Digital agency portfolio website interface designed by CodeKea with modern layout and animations",
     techStack: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     link: "https://digital-agency-gold.vercel.app/",
   },
@@ -135,12 +143,15 @@ export const PROJECTS: Project[] = [
     id: 3,
     title: "CodeTogether",
     description:
-      "A collaborative DSA problem-solving platform where multiple users can join a shared coding room using an invite code. Enables real-time collaboration on a single problem, allowing participants to solve, discuss, and debug together through a seamless room-based system.",
+      "A collaborative DSA problem-solving platform where multiple users can join a shared coding room using an invite code and solve problems together in real time.",
     image: "/codeTogether.png",
+    alt: "CodeTogether collaborative coding platform UI built by CodeKea using React and Node.js",
     techStack: ["React", "Node.js", "Express", "Socket.io", "MongoDB"],
     link: "https://code-together-rzis.vercel.app",
   },
 ];
+
+/* ================= SERVICES ================= */
 
 export const SERVICES: Service[] = [
   {
@@ -289,11 +300,13 @@ export const SERVICES: Service[] = [
   },
 ];
 
+/* ================= PRICING ================= */
+
 export const SERVICE_PRICES = [
   {
     id: 1,
     name: "Web Design",
-    price: "₹11,999",
+    price: "₹9,999",
     description: "Landing pages & portfolios.",
     icon: Layout,
     features: [
@@ -322,8 +335,23 @@ export const SERVICE_PRICES = [
   },
   {
     id: 3,
+    name: "Full Stack",
+    price: "₹25,999",
+    description: "Complex Platforms.",
+    icon: Server,
+    features: [
+      "Custom Backend API",
+      "Database Design",
+      "Admin Dashboard",
+      "Adv. Authentication",
+      "Cloud Deployment",
+      "6-8 Week Delivery",
+    ],
+  },
+  {
+    id: 4,
     name: "Mobile Apps",
-    price: "₹42,999",
+    price: "₹28,999",
     description: "iOS & Android Apps.",
     icon: Smartphone,
     features: [
@@ -336,9 +364,9 @@ export const SERVICE_PRICES = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "AI Solutions",
-    price: "₹35,999",
+    price: "₹29,999",
     description: "Chatbots & Automation.",
     icon: Cpu,
     features: [
@@ -351,9 +379,9 @@ export const SERVICE_PRICES = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     name: "Web3 dApps",
-    price: "₹69,999",
+    price: "₹49,999",
     description: "Smart Contracts & NFTs.",
     icon: Code,
     features: [
@@ -365,28 +393,15 @@ export const SERVICE_PRICES = [
       "5-6 Week Delivery",
     ],
   },
-  {
-    id: 6,
-    name: "Full Stack",
-    price: "₹39,999",
-    description: "Complex Platforms.",
-    icon: Server,
-    features: [
-      "Custom Backend API",
-      "Database Design",
-      "Admin Dashboard",
-      "Adv. Authentication",
-      "Cloud Deployment",
-      "6-8 Week Delivery",
-    ],
-  },
 ];
+
+/* ================= BUSINESS BUNDLES ================= */
 
 export const BUSINESS_BUNDLES = [
   {
     id: "startup",
     title: "Kickstarter Pack",
-    price: "₹49,999",
+    price: "₹41,999",
     subtitle: "Launch your idea",
     description:
       "Get your business online instantly with a powerful web and mobile presence.",
@@ -404,7 +419,7 @@ export const BUSINESS_BUNDLES = [
   {
     id: "growth",
     title: "Growth Accelerator",
-    price: "₹89,999",
+    price: "₹61,999",
     subtitle: "Scale your operations",
     description:
       "A complete digital transformation suite. Perfect for growing businesses needing control.",
@@ -422,7 +437,7 @@ export const BUSINESS_BUNDLES = [
   {
     id: "enterprise",
     title: "Market Dominator",
-    price: "₹1,11,999",
+    price: "₹89,999",
     subtitle: "Rule your industry",
     description:
       "Full-scale custom development with AI integration and automation tools.",
@@ -439,9 +454,11 @@ export const BUSINESS_BUNDLES = [
   },
 ];
 
+/* ================= ABOUT ================= */
+
 export const ABOUT_CONTENT = {
   story:
-    "Founded in 2025, CodeKea emerged from a vision to bridge the gap between complex emerging technologies and practical business applications. What started as a small team of passionate developers has grown into a full-service digital agency known for delivering 'future-proof' solutions.",
+    "Founded in 2025, CodeKea emerged from a vision to bridge the gap between complex emerging technologies and practical business applications.",
   stats: [
     { label: "Projects Delivered", value: "50+", icon: Trophy },
     { label: "Happy Clients", value: "100%", icon: Users },
@@ -452,35 +469,21 @@ export const ABOUT_CONTENT = {
     {
       title: "Innovation First",
       description:
-        "We don't just follow trends; we set them. We constantly explore new stacks like Web3 and AI to give our clients an edge.",
+        "We don't just follow trends; we set them by exploring Web3 and AI.",
       icon: Rocket,
     },
     {
       title: "Transparency",
       description:
-        "No hidden fees, no technical jargon. We keep you in the loop at every stage of the development cycle.",
+        "No hidden fees, no jargon. We keep you informed at every stage.",
       icon: Shield,
     },
     {
       title: "Quality Obsession",
       description:
-        "From the first line of code to the final pixel, we maintain rigorous standards for performance and aesthetics.",
+        "From first line of code to final pixel, excellence is non-negotiable.",
       icon: Target,
     },
-  ],
-};
-
-export const INTERNATIONAL_OFFER = {
-  title: "Global Expansion Pack",
-  price: "$3,499",
-  description:
-    "Scale your startup internationally with a complete localization and global infrastructure suite. We handle the technical complexities of cross-border operations.",
-  features: [
-    "Multi-language (i18n) Architecture",
-    "Global CDN & Edge Computing Setup",
-    "International Payment Gateway Integration",
-    "GDPR & Regional Compliance Audit",
-    "Localized SEO & Content Strategy",
   ],
 };
 

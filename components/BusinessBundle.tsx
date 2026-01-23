@@ -7,6 +7,8 @@ import {
   ShieldCheck,
   Star,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import { BUSINESS_BUNDLES } from "../data/content";
 
 interface BusinessBundleProps {
@@ -15,11 +17,13 @@ interface BusinessBundleProps {
 
 const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const scrollAmount =
         window.innerWidth < 768 ? window.innerWidth * 0.75 : 750;
+
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -29,12 +33,17 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
 
   const handleSelectPlan = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
+
     onSelectService(id);
+
+    // Always go home first (if on another route)
+    navigate("/");
+
     setTimeout(() => {
       document
         .getElementById("contact")
         ?.scrollIntoView({ behavior: "smooth" });
-    }, 50);
+    }, 200);
   };
 
   return (
@@ -48,6 +57,7 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
           <span className="text-accent font-bold uppercase text-xs tracking-wider block mb-1">
             Exclusive Packages
           </span>
+
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
             Business Growth{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-500">
@@ -92,15 +102,15 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
                 className="
-                  w-[88vw]        /* ⬅ Smaller on mobile */
-                  sm:w-[82vw]     /* ⬅ Smaller on tablet */
+                  w-[88vw]
+                  sm:w-[82vw]
                   md:w-auto 
                   md:min-w-[620px]
                   lg:min-w-[820px]
                   snap-center flex-shrink-0
                 "
               >
-                {/* OUTER GRADIENT FRAME */}
+                {/* OUTER FRAME */}
                 <div
                   className={`relative rounded-2xl p-[1px] bg-gradient-to-r ${
                     plan.popular
@@ -108,7 +118,7 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
                       : "from-purple-500/30 via-rose-500/30 to-purple-500/30"
                   }`}
                 >
-                  {/* CARD CONTENT */}
+                  {/* CARD */}
                   <div className="bg-[#050505] rounded-2xl p-4 sm:p-6 md:p-10">
                     {/* Subtitle */}
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-[10px] sm:text-xs font-bold uppercase mb-4 mx-auto">
@@ -148,7 +158,7 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
                       ))}
                     </ul>
 
-                    {/* CTA BUTTON */}
+                    {/* CTA */}
                     <button
                       onClick={(e) => handleSelectPlan(e, plan.id)}
                       className={`w-full px-6 py-3 rounded-full text-xs sm:text-sm font-bold shadow

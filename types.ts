@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export interface Project {
   id: number;
   title: string;
   description: string;
   image: string;
+  alt: String;
   techStack: string[];
   link: string;
 }
@@ -48,8 +49,8 @@ export interface FAQItem {
   answer: string;
 }
 
-export type PageView = 
-  | { type: 'home' }
-  | { type: 'about' }
-  | { type: 'service'; serviceId: string }
-  | { type: 'legal'; pageId: 'privacy' | 'terms' | 'cookie' };
+export type PageView =
+  | { type: "home" }
+  | { type: "about" }
+  | { type: "service"; serviceId: string }
+  | { type: "legal"; pageId: "privacy" | "terms" | "cookie" };

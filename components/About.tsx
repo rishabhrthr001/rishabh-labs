@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import { ABOUT_CONTENT } from "../data/content";
 import SEO from "./SEO";
 
-interface AboutProps {
-  onNavigate: (view: any) => void;
-}
+const About: React.FC = () => {
+  const navigate = useNavigate();
 
-const About: React.FC<AboutProps> = ({ onNavigate }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -21,7 +21,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
       className="min-h-screen bg-dark text-white pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
       <SEO
-        title="About Us | Code By Choice"
+        title="About Us | CodeKea"
         description="Learn about Code By Choice, a forward-thinking software agency bridging the gap between emerging tech and practical business solutions."
       />
 
@@ -35,7 +35,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
         {/* Header */}
         <div className="mb-16">
           <button
-            onClick={() => onNavigate({ type: "home" })}
+            onClick={() => navigate("/")}
             className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
@@ -45,7 +45,10 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6">
             About{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-500">
-              Code By Choice
+              Code
+              <span className="text-transparent bg-clip-text bg-orange">
+                Kea
+              </span>
             </span>
           </h1>
 
@@ -76,6 +79,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
         <h2 className="text-3xl font-display font-bold text-white mb-10 text-center">
           Our Core Values
         </h2>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
           {ABOUT_CONTENT.values.map((value, idx) => (
             <div
@@ -85,9 +89,11 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
               <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-rose-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
                 <value.icon className="w-7 h-7 text-white" />
               </div>
+
               <h3 className="text-xl font-bold text-white mb-3">
                 {value.title}
               </h3>
+
               <p className="text-gray-400 leading-relaxed">
                 {value.description}
               </p>
@@ -103,6 +109,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Innovate?
             </h2>
+
             <p className="text-gray-300 max-w-xl mx-auto mb-8">
               Join the 50+ businesses that have transformed their digital
               presence with our expertise.
@@ -110,12 +117,13 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
 
             <button
               onClick={() => {
-                onNavigate({ type: "home" });
+                navigate("/");
+
                 setTimeout(() => {
                   document
                     .getElementById("contact")
                     ?.scrollIntoView({ behavior: "smooth" });
-                }, 100);
+                }, 150);
               }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-full hover:bg-orange-500 transition-colors shadow-lg shadow-orange-900/30"
             >

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechMarquee from "./components/TechMarquee";
@@ -14,19 +16,21 @@ import ServiceDetail from "./components/ServiceDetail";
 import LegalPage from "./components/LegalPage";
 import About from "./components/About";
 import SEO from "./components/SEO";
-import { PageView } from "./types";
 import FloatingContact from "./components/FloatingContact";
 
 function App() {
+  const navigate = useNavigate();
   const [selectedService, setSelectedService] = useState("web-dev");
-  const [currentView, setCurrentView] = useState<PageView>({ type: "home" });
 
   useEffect(() => {
     document.documentElement.classList.add("scroll-smooth");
   }, []);
 
-  const handleNavigate = (view: PageView) => {
-    setCurrentView(view);
+  const handleNavigate = (view: any) => {
+    if (view.type === "home") navigate("/");
+    if (view.type === "about") navigate("/about");
+    if (view.type === "service") navigate(`/services/${view.serviceId}`);
+    if (view.type === "legal") navigate(`/legal/${view.pageId}`);
   };
 
   return (
@@ -34,45 +38,47 @@ function App() {
       <Navbar onNavigate={handleNavigate} />
 
       <main className="flex-grow">
-        {currentView.type === "home" && (
-          <>
-            <SEO
-              title="CodeKea | Future-Proof Software Development"
-              description="Premium software development agency specializing in Web3, AI Automation, Mobile Apps, and High-Performance Websites. Transform your business today."
-              image="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop"
-            />
-            <Hero />
-            <TechMarquee />
-            <ServicesHorizontal
-              onLearnMore={(id) =>
-                setCurrentView({ type: "service", serviceId: id })
-              }
-            />
-            <Projects />
+        <Routes>
+          {/* ================= HOME ================= */}
+          <Route
+            path="/"
+            element={
+              <>
+                <SEO
+                  title="CodeKea | Future-Proof Software Development"
+                  description="Premium software development agency specializing in Web3, AI Automation, Mobile Apps, and High-Performance Websites. Transform your business today."
+                  image="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop"
+                />
 
-            <Pricing onSelectService={setSelectedService} />
-            <BusinessBundle onSelectService={setSelectedService} />
-            <Testimonials />
-            <FAQ />
-            <Contact selectedService={selectedService} />
-          </>
-        )}
+                <Hero />
+                <TechMarquee />
 
-        {currentView.type === "about" && <About onNavigate={handleNavigate} />}
+                <ServicesHorizontal
+                  onLearnMore={(id) => navigate(`/services/${id}`)}
+                />
 
-        {currentView.type === "service" && (
-          <ServiceDetail
-            serviceId={currentView.serviceId}
-            onBack={() => setCurrentView({ type: "home" })}
+                <Projects />
+
+                <Pricing onSelectService={setSelectedService} />
+                <BusinessBundle onSelectService={setSelectedService} />
+
+                <Testimonials />
+                <FAQ />
+
+                <Contact selectedService={selectedService} />
+              </>
+            }
           />
-        )}
 
-        {currentView.type === "legal" && (
-          <LegalPage
-            pageId={currentView.pageId}
-            onBack={() => setCurrentView({ type: "home" })}
-          />
-        )}
+          {/* ================= ABOUT ================= */}
+          <Route path="/about" element={<About />} />
+
+          {/* ================= SERVICE DETAIL ================= */}
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
+
+          {/* ================= LEGAL ================= */}
+          <Route path="/legal/:pageId" element={<LegalPage />} />
+        </Routes>
       </main>
 
       <Footer onNavigate={handleNavigate} />

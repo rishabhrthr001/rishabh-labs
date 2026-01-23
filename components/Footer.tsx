@@ -7,13 +7,29 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import { NAV_LINKS } from "../data/content";
 
-interface FooterProps {
-  onNavigate: (view: any) => void;
-}
+const Footer: React.FC = () => {
+  const navigate = useNavigate();
 
-const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const goHomeAndScroll = (selector?: string) => {
+    navigate("/");
+
+    if (!selector || selector === "#hero") {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 150);
+      return;
+    }
+
+    setTimeout(() => {
+      const el = document.querySelector(selector);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }, 200);
+  };
+
   return (
     <footer className="bg-black border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-purple-950/20 to-transparent pointer-events-none" />
@@ -22,17 +38,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <a
-              href="#hero"
-              onClick={(e) => {
-                e.preventDefault();
-                onNavigate({ type: "home" });
-                window.scrollTo(0, 0);
-              }}
+            <button
+              onClick={() => goHomeAndScroll("#hero")}
               className="text-2xl font-display font-bold tracking-tighter text-white mb-4 block w-fit"
             >
               Code<span className="text-accent">Kea</span>
-            </a>
+            </button>
 
             <p className="text-gray-400 max-w-sm mb-4">
               Empowering businesses with future-proof digital solutions. From
@@ -59,66 +70,37 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
 
             <div className="flex gap-4">
-              <a
-                href="#"
-                aria-label="Twitter"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                aria-label="GitHub"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="text-gray-400 hover:text-accent transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
+              {[Twitter, Linkedin, Github, Instagram].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="text-gray-400 hover:text-accent transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Links */}
           <div>
             <h4 className="text-white font-bold mb-4">Quick Links</h4>
+
             <ul className="space-y-2">
               {NAV_LINKS.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
+                  <button
+                    onClick={() => {
                       if (link.href === "about") {
-                        onNavigate({ type: "about" });
-                        window.scrollTo(0, 0);
+                        navigate("/about");
                       } else {
-                        onNavigate({ type: "home" });
-                        setTimeout(() => {
-                          const element = document.querySelector(link.href);
-                          if (element) {
-                            element.scrollIntoView({ behavior: "smooth" });
-                          } else if (link.href === "#hero") {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }
-                        }, 100);
+                        goHomeAndScroll(link.href);
                       }
                     }}
                     className="text-gray-400 hover:text-accent transition-colors text-sm"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -127,30 +109,29 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Legal */}
           <div>
             <h4 className="text-white font-bold mb-4">Legal</h4>
+
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() =>
-                    onNavigate({ type: "legal", pageId: "privacy" })
-                  }
+                  onClick={() => navigate("/legal/privacy")}
                   className="text-gray-400 hover:text-accent transition-colors text-sm"
                 >
                   Privacy Policy
                 </button>
               </li>
+
               <li>
                 <button
-                  onClick={() => onNavigate({ type: "legal", pageId: "terms" })}
+                  onClick={() => navigate("/legal/terms")}
                   className="text-gray-400 hover:text-accent transition-colors text-sm"
                 >
                   Terms of Service
                 </button>
               </li>
+
               <li>
                 <button
-                  onClick={() =>
-                    onNavigate({ type: "legal", pageId: "cookie" })
-                  }
+                  onClick={() => navigate("/legal/cookie")}
                   className="text-gray-400 hover:text-accent transition-colors text-sm"
                 >
                   Cookie Policy

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import { NAV_LINKS } from "../data/content";
 
-interface NavbarProps {
-  onNavigate: (view: any) => void;
-}
+const Navbar: React.FC = () => {
+  const navigate = useNavigate();
 
-const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -18,29 +18,42 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   ];
 
   const MENU_LINKS = NAV_LINKS.filter(
-    (l) => !MAIN_LINKS.find((m) => m.name === l.name)
+    (l) => !MAIN_LINKS.find((m) => m.name === l.name),
   );
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (href: string) => {
+  const goHomeAndScroll = (selector?: string) => {
     setMobileMenuOpen(false);
 
-    if (href === "about") {
-      onNavigate({ type: "about" });
-      window.scrollTo(0, 0);
+    navigate("/");
+
+    if (!selector || selector === "#hero") {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 150);
       return;
     }
 
-    onNavigate({ type: "home" });
     setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+      const el = document.querySelector(selector);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }, 200);
+  };
+
+  const handleLinkClick = (href: string) => {
+    if (href === "about") {
+      setMobileMenuOpen(false);
+      navigate("/about");
+      return;
+    }
+
+    goHomeAndScroll(href);
   };
 
   return (
@@ -59,18 +72,14 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         }`}
       >
         {/* Desktop Logo */}
-        <a
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault();
-            handleLinkClick("#hero");
-          }}
+        <button
+          onClick={() => goHomeAndScroll("#hero")}
           className="hidden lg:block text-2xl font-bold text-white"
         >
           Code<span className="text-accent">Kea</span>
-        </a>
+        </button>
 
-        {/* SM + MD — Only Home | Work | Contact */}
+        {/* SM + MD */}
         <ul className="flex lg:hidden items-center gap-4 text-gray-200 font-medium">
           {MAIN_LINKS.map((link) => (
             <li key={link.name}>
@@ -84,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           ))}
         </ul>
 
-        {/* Desktop nav links */}
+        {/* Desktop nav */}
         <ul className="hidden lg:flex items-center gap-3 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
           {NAV_LINKS.map((link) => (
             <li key={link.name}>
@@ -98,15 +107,15 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           ))}
         </ul>
 
-        {/* Start Project button — ONLY visible on lg */}
+        {/* Start Project */}
         <button
-          onClick={() => handleLinkClick("#contact")}
+          onClick={() => goHomeAndScroll("#contact")}
           className="hidden lg:flex px-5 py-2 bg-gradient-to-r from-purple-600 to-secondary rounded-full text-sm font-semibold text-white"
         >
           Start Project
         </button>
 
-        {/* Hamburger — sm & md only */}
+        {/* Hamburger */}
         <button
           className="text-white p-2 lg:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -115,7 +124,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         </button>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -134,9 +143,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               </button>
             ))}
 
-            {/* Start Project still available in mobile menu */}
             <button
-              onClick={() => handleLinkClick("#contact")}
+              onClick={() => goHomeAndScroll("#contact")}
               className="w-full mt-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-secondary text-white font-bold"
             >
               Start Project

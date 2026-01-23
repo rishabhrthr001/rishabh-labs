@@ -1,16 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import { SERVICES } from "../data/content";
 import { Check, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-interface ServicesHorizontalProps {
-  onLearnMore: (id: string) => void;
-}
-
-const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
-  onLearnMore,
-}) => {
+const ServicesHorizontal: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const navigate = useNavigate();
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -39,16 +36,9 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
       const goingDown = e.deltaY > 0;
       const goingUp = e.deltaY < 0;
 
-      if (goingDown && !atEnd) {
+      if ((goingDown && !atEnd) || (goingUp && !atStart)) {
         e.preventDefault();
         scroller.scrollLeft += e.deltaY;
-        return;
-      }
-
-      if (goingUp && !atStart) {
-        e.preventDefault();
-        scroller.scrollLeft += e.deltaY;
-        return;
       }
     };
 
@@ -94,7 +84,13 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="relative group 
+              role="button"
+              tabIndex={0}
+              onClick={() => navigate(`/services/${service.id}`)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") navigate(`/services/${service.id}`);
+              }}
+              className="relative group cursor-pointer
                 h-[400px] w-[260px]
                 md:h-[480px] md:w-[340px]
                 lg:h-[500px] lg:w-[360px]
@@ -103,7 +99,7 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
                 hover:border-accent/50 transition-colors shadow-2xl snap-center"
             >
               {/* Background Icon */}
-              <div className="absolute -bottom-10 -right-10 z-0 opacity-[0.03] group-hover:opacity-[0.08] rotate-12 transition-opacity">
+              <div className="absolute -bottom-10 -right-10 z-0 opacity-[0.03] group-hover:opacity-[0.08] rotate-12 transition-opacity pointer-events-none">
                 <service.icon className="w-56 h-56 text-white" />
               </div>
 
@@ -132,13 +128,11 @@ const ServicesHorizontal: React.FC<ServicesHorizontalProps> = ({
                   ))}
                 </ul>
 
-                <button
-                  onClick={() => onLearnMore(service.id)}
-                  className="mt-auto border-t border-white/5 pt-3 flex items-center gap-1.5 text-xs md:text-sm font-bold text-white hover:text-accent transition-colors"
-                >
+                {/* Footer Row */}
+                <div className="mt-auto border-t border-white/5 pt-3 flex items-center gap-1.5 text-xs md:text-sm font-bold text-white group-hover:text-accent transition-colors">
                   Learn More
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </div>
               </div>
             </div>
           ))}

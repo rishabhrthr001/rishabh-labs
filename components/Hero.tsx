@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 mb-12 leading-relaxed"
+          className="max-w-4xl mx-auto text-lg md:text-xl text-gray-400 mb-12 leading-relaxed"
         >
           We engineer premium digital experiences. From high-scale web platforms
           to AI-driven automation, we turn visionary ideas into dominant

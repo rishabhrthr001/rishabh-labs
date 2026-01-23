@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Check, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { SERVICE_PRICES } from '../data/content';
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
+import { Check, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { SERVICE_PRICES } from "../data/content";
 
 interface PricingProps {
   onSelectService: (service: string) => void;
@@ -10,97 +10,101 @@ interface PricingProps {
 const Pricing: React.FC<PricingProps> = ({ onSelectService }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 400; // Approx card width + gap
+      const scrollAmount = 400;
       scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
       });
     }
   };
 
   const handleSelectPlan = (id: number) => {
-    let serviceKey = 'web-dev';
-    
-    // Map ID from SERVICE_PRICES to value in Contact form select
+    let serviceKey = "web-dev";
+
     switch (id) {
-      case 1: // Web Design
-        serviceKey = 'web-dev';
+      case 1:
+        serviceKey = "web-dev";
         break;
-      case 2: // Product Design
-        serviceKey = 'product-design';
+      case 2:
+        serviceKey = "product-design";
         break;
-      case 3: // Mobile Apps
-        serviceKey = 'app-dev';
+      case 3:
+        serviceKey = "full-stack";
         break;
-      case 4: // AI Solutions
-        serviceKey = 'ai-automation';
+      case 4:
+        serviceKey = "app-dev";
         break;
-      case 5: // Web3 dApps
-        serviceKey = 'web3';
+      case 5:
+        serviceKey = "ai-automation";
         break;
-      case 6: // Full Stack
-        serviceKey = 'full-stack';
+      case 6:
+        serviceKey = "web3";
         break;
       default:
-        serviceKey = 'web-dev';
+        serviceKey = "web-dev";
     }
-    
+
     onSelectService(serviceKey);
 
-    // Manual scroll to contact
     setTimeout(() => {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      const contactSection = document.getElementById("contact");
+      contactSection?.scrollIntoView({ behavior: "smooth" });
     }, 50);
   };
+
+  const sortedServices = [...SERVICE_PRICES].sort((a, b) => {
+    const priceA = Number(a.price.replace(/[₹,]/g, ""));
+    const priceB = Number(b.price.replace(/[₹,]/g, ""));
+    return priceA - priceB;
+  });
 
   return (
     <section id="pricing" className="py-24 bg-dark relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/10 to-black pointer-events-none" />
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:30px_30px] pointer-events-none" />
-      
-      {/* Central Gradient */}
+
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-            Transparent <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-500">Starting Rates</span>
+            Transparent{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-500">
+              Starting Rates
+            </span>
           </h2>
+
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Professional grade development shouldn't be a mystery. Swipe to explore our services.
+            Professional grade development shouldn't be a mystery. Swipe to
+            explore our services.
           </p>
         </div>
 
-        {/* Carousel Container */}
         <div className="relative group/carousel">
-          
           {/* Left Arrow */}
-          <button 
-            onClick={() => scroll('left')}
+          <button
+            onClick={() => scroll("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 p-3 rounded-full bg-surface border border-white/10 text-white hover:bg-white/10 hover:border-accent transition-all shadow-xl backdrop-blur-sm hidden md:flex"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
           {/* Right Arrow */}
-          <button 
-            onClick={() => scroll('right')}
+          <button
+            onClick={() => scroll("right")}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 p-3 rounded-full bg-surface border border-white/10 text-white hover:bg-white/10 hover:border-accent transition-all shadow-xl backdrop-blur-sm hidden md:flex"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
           {/* Scrollable Area */}
-          <div 
+          <div
             ref={scrollRef}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-12 pt-4 px-4 scroll-smooth"
           >
-            {SERVICE_PRICES.map((service, index) => (
+            {sortedServices.map((service) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -113,14 +117,25 @@ const Pricing: React.FC<PricingProps> = ({ onSelectService }) => {
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-rose-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <service.icon className="w-6 h-6 text-accent" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{service.name}</h3>
-                  <p className="text-gray-400 text-sm h-10">{service.description}</p>
+
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {service.name}
+                  </h3>
+
+                  <p className="text-gray-400 text-sm h-10">
+                    {service.description}
+                  </p>
                 </div>
 
                 <div className="mb-8 p-4 bg-black/40 rounded-xl border border-white/5 group-hover:border-purple-500/20 transition-colors">
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Starting from</p>
+                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">
+                    Starting from
+                  </p>
+
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold text-white">{service.price}</span>
+                    <span className="text-3xl font-bold text-white">
+                      {service.price}
+                    </span>
                     <span className="text-gray-500 text-sm">/ project</span>
                   </div>
                 </div>
@@ -128,7 +143,10 @@ const Pricing: React.FC<PricingProps> = ({ onSelectService }) => {
                 <div className="flex-1">
                   <ul className="space-y-3 mb-8">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-gray-300">
+                      <li
+                        key={idx}
+                        className="flex items-start gap-3 text-sm text-gray-300"
+                      >
                         <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
@@ -145,12 +163,12 @@ const Pricing: React.FC<PricingProps> = ({ onSelectService }) => {
               </motion.div>
             ))}
           </div>
-          
+
           {/* Mobile Swipe Indicator */}
           <div className="flex md:hidden justify-center gap-2 -mt-6">
-             <div className="text-xs text-gray-500 flex items-center gap-1 animate-pulse">
-                Swipe for more <ArrowRight className="w-3 h-3" />
-             </div>
+            <div className="text-xs text-gray-500 flex items-center gap-1 animate-pulse">
+              Swipe for more <ArrowRight className="w-3 h-3" />
+            </div>
           </div>
         </div>
       </div>

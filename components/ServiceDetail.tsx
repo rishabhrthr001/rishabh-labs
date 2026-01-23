@@ -1,36 +1,39 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { useParams, useNavigate } from "react-router-dom";
+
 import { SERVICES } from "../data/content";
 import SEO from "./SEO";
 
-interface ServiceDetailProps {
-  serviceId: string;
-  onBack: () => void;
-}
+const BASE_URL = "https://codekea.com";
 
-const ServiceDetail: React.FC<ServiceDetailProps> = ({ serviceId, onBack }) => {
+const ServiceDetail: React.FC = () => {
+  const { serviceId } = useParams<{ serviceId: string }>();
+  const navigate = useNavigate();
+
   const service = SERVICES.find((s) => s.id === serviceId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [serviceId]);
 
   if (!service) return null;
 
+  const pageUrl = `${BASE_URL}/services/${service.id}`;
+
   return (
     <motion.div
-      onClick={onBack}
-      role="button"
-      tabIndex={0}
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -100 }}
-      className="min-h-screen bg-dark text-white pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden cursor-pointer"
+      className="min-h-screen bg-dark text-white pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
       <SEO
-        title={`${service.title} | CodeKea Services`}
+        title={`${service.title}`}
         description={service.shortDescription}
+        url={pageUrl}
+        type="article"
       />
 
       {/* Background Gradients */}
@@ -38,13 +41,10 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ serviceId, onBack }) => {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* CONTENT (clicks here do NOT go back) */}
-      <div
-        className="max-w-4xl mx-auto relative z-10 cursor-default"
-        onClick={(e) => e.stopPropagation()}
-      >
+      {/* CONTENT */}
+      <div className="max-w-4xl mx-auto relative z-10">
         <button
-          onClick={onBack}
+          onClick={() => navigate("/")}
           className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
@@ -55,6 +55,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ serviceId, onBack }) => {
           <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg">
             <service.icon className="w-8 h-8 text-white" />
           </div>
+
           <h1 className="text-4xl md:text-6xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-500">
             {service.title}
           </h1>
@@ -65,8 +66,10 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ serviceId, onBack }) => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          {/* FEATURES */}
           <div>
             <h3 className="text-2xl font-bold text-white mb-6">Key Features</h3>
+
             <ul className="space-y-4">
               {service.features?.map((feature, idx) => (
                 <li
@@ -80,8 +83,10 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ serviceId, onBack }) => {
             </ul>
           </div>
 
+          {/* PROCESS */}
           <div>
             <h3 className="text-2xl font-bold text-white mb-6">Our Process</h3>
+
             <div className="relative border-l border-white/10 ml-3 space-y-8 py-2">
               {service.process?.map((step, idx) => (
                 <div key={idx} className="relative pl-8">
@@ -96,28 +101,30 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ serviceId, onBack }) => {
           </div>
         </div>
 
+        {/* CTA */}
         <div className="bg-gradient-to-r from-purple-900/30 to-rose-900/30 border border-white/10 rounded-3xl p-8 md:p-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to start?
           </h3>
+
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">
             Let's discuss how we can implement {service.title} for your business
             today.
           </p>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              onBack();
+
+          <button
+            onClick={() => {
+              navigate("/");
               setTimeout(() => {
-                const contact = document.getElementById("contact");
-                contact?.scrollIntoView({ behavior: "smooth" });
-              }, 100);
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }, 200);
             }}
             className="inline-block px-8 py-4 bg-accent text-white font-bold rounded-full hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/20"
           >
             Get a Quote for {service.title}
-          </a>
+          </button>
         </div>
       </div>
     </motion.div>
