@@ -22,7 +22,7 @@ const About: React.FC = () => {
     >
       <SEO
         title="About Us | CodeKea"
-        description="Learn about Code By Choice, a forward-thinking software agency bridging the gap between emerging tech and practical business solutions."
+        description="Learn about CodeKea, a forward-thinking software agency bridging the gap between emerging tech and practical business solutions."
       />
 
       {/* Background Gradients */}

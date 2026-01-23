@@ -15,7 +15,7 @@ const DEFAULT_IMAGE =
   "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop";
 
 const DEFAULT_KEYWORDS =
-  "web3 development agency, blockchain developers india, ai automation services, full stack development agency, mobile app development company, smart contract audit, react developers, startup tech agency";
+  "Website development agency, web3 development agency, blockchain developers india, ai automation services, full stack development agency, mobile app development company, smart contract audit, react developers, startup tech agency";
 
 const SEO: React.FC<SEOProps> = ({
   title,
