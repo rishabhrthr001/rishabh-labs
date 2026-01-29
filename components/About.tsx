@@ -36,7 +36,7 @@ const About: React.FC = () => {
         <div className="mb-16">
           <button
             onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
+            className="flex items-center gap-2 text-gray-400 hover:text-[#f97316] transition-colors mb-8 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             Back to Home
@@ -64,7 +64,7 @@ const About: React.FC = () => {
               key={idx}
               className="bg-surface/50 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm"
             >
-              <stat.icon className="w-8 h-8 text-accent mx-auto mb-4" />
+              <stat.icon className="w-8 h-8 text-[#f97316] mx-auto mb-4" />
               <div className="text-3xl font-bold text-white mb-1">
                 {stat.value}
               </div>
@@ -125,7 +125,7 @@ const About: React.FC = () => {
                     ?.scrollIntoView({ behavior: "smooth" });
                 }, 150);
               }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-bold rounded-full hover:bg-orange-500 transition-colors shadow-lg shadow-orange-900/30"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#f97316] text-white font-bold rounded-full hover:bg-orange-500 transition-colors shadow-lg shadow-orange-900/30"
             >
               Start Your Project <ArrowRight className="w-4 h-4" />
             </button>

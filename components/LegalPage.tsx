@@ -40,7 +40,7 @@ const LegalPage: React.FC = () => {
       <div className="max-w-3xl mx-auto relative z-10">
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
+          className="flex items-center gap-2 text-gray-400 hover:text-[#f97316] transition-colors mb-8 group"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           Back to Home

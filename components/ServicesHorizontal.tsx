@@ -96,7 +96,7 @@ const ServicesHorizontal: React.FC = () => {
                 lg:h-[500px] lg:w-[360px]
                 flex-shrink-0 rounded-3xl bg-surface border border-white/5
                 p-6 md:p-8 flex flex-col overflow-hidden
-                hover:border-accent/50 transition-colors shadow-2xl snap-center"
+                hover:border-[#f97316]/50 transition-colors shadow-2xl snap-center"
             >
               {/* Background Icon */}
               <div className="absolute -bottom-10 -right-10 z-0 opacity-[0.03] group-hover:opacity-[0.08] rotate-12 transition-opacity pointer-events-none">
@@ -104,8 +104,8 @@ const ServicesHorizontal: React.FC = () => {
               </div>
 
               <div className="relative z-10 h-full flex flex-col">
-                <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-5 border border-white/5 group-hover:border-accent/30 group-hover:bg-accent/20 transition-colors">
-                  <service.icon className="w-6 h-6 text-accent" />
+                <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-5 border border-white/5 group-hover:border-[#f97316]/30 group-hover:bg-[#f97316]/20 transition-colors">
+                  <service.icon className="w-6 h-6 text-[#f97316]" />
                 </div>
 
                 <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-3">
@@ -129,7 +129,7 @@ const ServicesHorizontal: React.FC = () => {
                 </ul>
 
                 {/* Footer Row */}
-                <div className="mt-auto border-t border-white/5 pt-3 flex items-center gap-1.5 text-xs md:text-sm font-bold text-white group-hover:text-accent transition-colors">
+                <div className="mt-auto border-t border-white/5 pt-3 flex items-center gap-1.5 text-xs md:text-sm font-bold text-white group-hover:text-[#f97316] transition-colors">
                   Learn More
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>

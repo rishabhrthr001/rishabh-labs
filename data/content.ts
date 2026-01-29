@@ -302,157 +302,203 @@ export const SERVICES: Service[] = [
 
 /* ================= PRICING ================= */
 
-export const SERVICE_PRICES = [
-  {
-    id: 1,
-    name: "Web Design",
-    price: "₹9,999",
-    description: "Landing pages & portfolios.",
-    icon: Layout,
-    features: [
-      "Responsive React Design",
-      "SEO Optimization",
-      "Contact Form",
-      "Social Integration",
-      "1 Month Support",
-      "3-4 Days Delivery",
-    ],
-  },
-  {
-    id: 2,
-    name: "Product Design",
-    price: "₹13,999",
-    description: "UI/UX & Prototyping.",
-    icon: Box,
-    features: [
-      "User Research",
-      "Figma Prototypes",
-      "Design System",
-      "User Flow Maps",
-      "Developer Handover",
-      "1-2 Week Delivery",
-    ],
-  },
-  {
-    id: 3,
-    name: "Full Stack",
-    price: "₹25,999",
-    description: "Complex Platforms.",
-    icon: Server,
-    features: [
-      "Custom Backend API",
-      "Database Design",
-      "Admin Dashboard",
-      "Adv. Authentication",
-      "Cloud Deployment",
-      "6-8 Week Delivery",
-    ],
-  },
-  {
-    id: 4,
-    name: "Mobile Apps",
-    price: "₹28,999",
-    description: "iOS & Android Apps.",
-    icon: Smartphone,
-    features: [
-      "Cross-Platform Code",
-      "User Auth",
-      "Push Notifications",
-      "Basic API Logic",
-      "Store Submission",
-      "3-4 Week Delivery",
-    ],
-  },
-  {
-    id: 5,
-    name: "AI Solutions",
-    price: "₹29,999",
-    description: "Chatbots & Automation.",
-    icon: Cpu,
-    features: [
-      "Custom Chatbot",
-      "OpenAI API Integration",
-      "Workflow Automation",
-      "Data Analysis Tool",
-      "Model Training",
-      "3-4 Week Delivery",
-    ],
-  },
-  {
-    id: 6,
-    name: "Web3 dApps",
-    price: "₹49,999",
-    description: "Smart Contracts & NFTs.",
-    icon: Code,
-    features: [
-      "Smart Contract Dev",
-      "Wallet Integration",
-      "Minting Website",
-      "Gas Optimization",
-      "Security Basic Check",
-      "5-6 Week Delivery",
-    ],
-  },
-];
+type Currency = "INR" | "USD";
+
+const convertInrToUsd = (inr: number) => Math.round(inr / 83);
+
+/* ================= SERVICE PRICES ================= */
+export const getServicePrices = (currency: Currency) => {
+  const base = [
+    {
+      id: "web-dev",
+      name: "Web Design",
+      priceInr: 9999,
+      usd: 400,
+      description: "Landing pages & portfolios.",
+      icon: Layout,
+      features: [
+        "Responsive React Design",
+        "SEO Optimization",
+        "Contact Form",
+        "Social Integration",
+        "1 Month Support",
+        "3-4 Days Delivery",
+      ],
+    },
+    {
+      id: "product-design",
+      name: "Product Design",
+      priceInr: 13999,
+      usd: 450,
+      description: "UI/UX & Prototyping.",
+      icon: Box,
+      features: [
+        "User Research",
+        "Figma Prototypes",
+        "Design System",
+        "User Flow Maps",
+        "Developer Handover",
+        "1-2 Week Delivery",
+      ],
+    },
+    {
+      id: "full-stack",
+      name: "Full Stack",
+      priceInr: 25999,
+      usd: 700,
+      description: "Complex Platforms.",
+      icon: Server,
+      features: [
+        "Custom Backend API",
+        "Database Design",
+        "Admin Dashboard",
+        "Adv. Authentication",
+        "Cloud Deployment",
+        "6-8 Week Delivery",
+      ],
+    },
+    {
+      id: "mobile-apps",
+      name: "Mobile Apps",
+      priceInr: 28999,
+      usd: 850,
+      description: "iOS & Android Apps.",
+      icon: Smartphone,
+      features: [
+        "Cross-Platform Code",
+        "User Auth",
+        "Push Notifications",
+        "Basic API Logic",
+        "Store Submission",
+        "3-4 Week Delivery",
+      ],
+    },
+    {
+      id: "ai-automation",
+      name: "AI Solutions",
+      priceInr: 29999,
+      usd: 1000,
+      description: "Chatbots & Automation.",
+      icon: Cpu,
+      features: [
+        "Custom Chatbot",
+        "OpenAI API Integration",
+        "Workflow Automation",
+        "Data Analysis Tool",
+        "Model Training",
+        "3-4 Week Delivery",
+      ],
+    },
+    {
+      id: "web3",
+      name: "Web3 dApps",
+      priceInr: 49999,
+      usd: 1400,
+      description: "Smart Contracts & NFTs.",
+      icon: Code,
+      features: [
+        "Smart Contract Dev",
+        "Wallet Integration",
+        "Minting Website",
+        "Gas Optimization",
+        "Security Basic Check",
+        "5-6 Week Delivery",
+      ],
+    },
+  ];
+
+  return base.map((s) => {
+    if (currency === "INR") {
+      return {
+        ...s,
+        price: `₹${s.priceInr.toLocaleString()}`,
+      };
+    }
+
+    return {
+      ...s,
+      price: `$${s.usd}`,
+    };
+  });
+};
 
 /* ================= BUSINESS BUNDLES ================= */
 
-export const BUSINESS_BUNDLES = [
-  {
-    id: "startup",
-    title: "Kickstarter Pack",
-    price: "₹41,999",
-    subtitle: "Launch your idea",
-    description:
-      "Get your business online instantly with a powerful web and mobile presence.",
-    icon: Rocket,
-    popular: false,
-    features: [
-      "Modern Responsive Website (5 Pages)",
-      "Basic Mobile App (WebView Wrapper)",
-      "Admin Dashboard for Content",
-      "2 Months Dedicated Support",
-      "Domain & Hosting Setup",
-      "Social Media Integration",
-    ],
-  },
-  {
-    id: "growth",
-    title: "Growth Accelerator",
-    price: "₹61,999",
-    subtitle: "Scale your operations",
-    description:
-      "A complete digital transformation suite. Perfect for growing businesses needing control.",
-    icon: Zap,
-    popular: true,
-    features: [
-      "Premium Website (Unlimited Pages)",
-      "Native Hybrid Mobile App (iOS/Android)",
-      "Advanced Admin Dashboard & Analytics",
-      "Content Management System (CMS)",
-      "Payment Gateway Integration",
-      "3 Months Priority Support",
-    ],
-  },
-  {
-    id: "enterprise",
-    title: "Market Dominator",
-    price: "₹89,999",
-    subtitle: "Rule your industry",
-    description:
-      "Full-scale custom development with AI integration and automation tools.",
-    icon: Crown,
-    popular: false,
-    features: [
-      "Custom Web Platform & API",
-      "Full Native Mobile Application",
-      "AI Automation & Chatbots",
-      "SaaS Architecture Setup",
-      "6 Months Premium Support",
-      "Dedicated Project Manager",
-    ],
-  },
-];
+export const getBusinessBundles = (currency: Currency) => {
+  const base = [
+    {
+      id: "startup",
+      title: "Kickstarter Pack",
+      priceInr: 41999,
+      usd: 900,
+      subtitle: "Launch your idea",
+      description:
+        "Get your business online instantly with a powerful web and mobile presence.",
+      icon: Rocket,
+      popular: false,
+      features: [
+        "Modern Responsive Website (5 Pages)",
+        "Basic Mobile App (WebView Wrapper)",
+        "Admin Dashboard for Content",
+        "2 Months Dedicated Support",
+        "Domain & Hosting Setup",
+        "Social Media Integration",
+      ],
+    },
+    {
+      id: "growth",
+      title: "Growth Accelerator",
+      priceInr: 61999,
+      usd: 1300,
+      subtitle: "Scale your operations",
+      description:
+        "A complete digital transformation suite. Perfect for growing businesses needing control.",
+      icon: Zap,
+      popular: true,
+      features: [
+        "Premium Website (Unlimited Pages)",
+        "Native Hybrid Mobile App (iOS/Android)",
+        "Advanced Admin Dashboard & Analytics",
+        "Content Management System (CMS)",
+        "Payment Gateway Integration",
+        "3 Months Priority Support",
+      ],
+    },
+    {
+      id: "enterprise",
+      title: "Market Dominator",
+      priceInr: 89999,
+      usd: 1700,
+      subtitle: "Rule your industry",
+      description:
+        "Full-scale custom development with AI integration and automation tools.",
+      icon: Crown,
+      popular: false,
+      features: [
+        "Custom Web Platform & API",
+        "Full Native Mobile Application",
+        "AI Automation & Chatbots",
+        "SaaS Architecture Setup",
+        "6 Months Premium Support",
+        "Dedicated Project Manager",
+      ],
+    },
+  ];
+
+  return base.map((b) => {
+    if (currency === "INR") {
+      return {
+        ...b,
+        price: `₹${b.priceInr.toLocaleString()}`,
+      };
+    }
+
+    return {
+      ...b,
+      price: `$${b.usd}`,
+    };
+  });
+};
 
 /* ================= ABOUT ================= */
 

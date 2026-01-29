@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
           onClick={() => goHomeAndScroll("#hero")}
           className="hidden lg:block text-2xl font-bold text-white"
         >
-          Code<span className="text-accent">Kea</span>
+          Code<span className="text-[#f97316]">Kea</span>
         </button>
 
         {/* SM + MD */}
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
             <li key={link.name}>
               <button
                 onClick={() => handleLinkClick(link.href)}
-                className="py-1 px-2 hover:text-accent"
+                className="py-1 px-2 hover:text-[#f97316]"
               >
                 {link.name}
               </button>
@@ -137,7 +137,7 @@ const Navbar: React.FC = () => {
               <button
                 key={link.name}
                 onClick={() => handleLinkClick(link.href)}
-                className="text-lg text-gray-300 hover:text-accent"
+                className="text-lg text-gray-300 hover:text-[#f97316]"
               >
                 {link.name}
               </button>

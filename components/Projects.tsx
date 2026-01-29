@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-accent font-bold tracking-wider uppercase text-sm mb-2 block"
+              className="text-[#f97316] font-bold tracking-wider uppercase text-sm mb-2 block"
             >
               Our Portfolio
             </motion.span>
@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
               className="text-4xl md:text-6xl font-display font-bold text-white leading-tight"
             >
               Forging{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-accent to-rose-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-[#f97316] to-rose-500">
                 Digital Reality
               </span>
             </motion.h2>
@@ -71,7 +71,7 @@ const Projects: React.FC = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:scale-105 shadow-[0_0_20px_rgba(249,115,22,0.4)]"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#f97316] text-white rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:scale-105 shadow-[0_0_20px_rgba(249,115,22,0.4)]"
                     >
                       View Live <ArrowUpRight className="w-4 h-4" />
                     </a>
@@ -94,7 +94,7 @@ const Projects: React.FC = () => {
                   <div className="h-px bg-white/10 flex-grow" />
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-accent transition-colors">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-[#f97316] transition-colors">
                   {project.title}
                 </h3>
 

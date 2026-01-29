@@ -45,7 +45,7 @@ const ServiceDetail: React.FC = () => {
       <div className="max-w-4xl mx-auto relative z-10">
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors mb-8 group"
+          className="flex items-center gap-2 text-gray-400 hover:text-[#f97316] transition-colors mb-8 group"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           Back to Home
@@ -61,7 +61,7 @@ const ServiceDetail: React.FC = () => {
           </h1>
         </div>
 
-        <p className="text-xl text-gray-300 leading-relaxed mb-12 border-l-4 border-accent pl-6">
+        <p className="text-xl text-gray-300 leading-relaxed mb-12 border-l-4 border-[#f97316] pl-6">
           {service.fullDescription}
         </p>
 
@@ -76,7 +76,7 @@ const ServiceDetail: React.FC = () => {
                   key={idx}
                   className="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/5 hover:border-purple-500/30 transition-colors"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#f97316] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-300">{feature}</span>
                 </li>
               ))}
@@ -90,7 +90,7 @@ const ServiceDetail: React.FC = () => {
             <div className="relative border-l border-white/10 ml-3 space-y-8 py-2">
               {service.process?.map((step, idx) => (
                 <div key={idx} className="relative pl-8">
-                  <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_10px_rgba(249,115,22,0.8)]" />
+                  <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[#f97316] shadow-[0_0_10px_rgba(249,115,22,0.8)]" />
                   <h4 className="text-lg font-bold text-white mb-1">
                     Step {idx + 1}
                   </h4>
@@ -121,7 +121,7 @@ const ServiceDetail: React.FC = () => {
                   ?.scrollIntoView({ behavior: "smooth" });
               }, 200);
             }}
-            className="inline-block px-8 py-4 bg-accent text-white font-bold rounded-full hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/20"
+            className="inline-block px-8 py-4 bg-[#f97316] text-white font-bold rounded-full hover:bg-orange-600 transition-colors shadow-lg shadow-orange-900/20"
           >
             Get a Quote for {service.title}
           </button>

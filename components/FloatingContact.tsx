@@ -23,9 +23,9 @@ const FloatingContact: React.FC = () => {
         {/* Call */}
         <a
           href="tel:+918447351776"
-          className="flex items-center gap-2 px-3 py-2 rounded-full text-sm text-gray-300 hover:text-white hover:bg-accent/10 transition-all"
+          className="flex items-center gap-2 px-3 py-2 rounded-full text-sm text-gray-300 hover:text-white hover:bg-[#f97316]/10 transition-all"
         >
-          <Phone className="w-4 h-4 text-accent" />
+          <Phone className="w-4 h-4 text-[#f97316]" />
           <span className="hidden sm:inline">Call</span>
         </a>
       </div>

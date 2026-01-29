@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
         <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[800px] h-[800px] bg-rose-600/10 rounded-full blur-[100px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-accent/20 rounded-full blur-[100px] mix-blend-screen" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#f97316]/20 rounded-full blur-[100px] mix-blend-screen" />
       </div>
 
       {/* Content */}
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-950/30 backdrop-blur-md shadow-[0_0_15px_rgba(147,51,234,0.2)] pointer-events-auto"
         >
-          <div className="w-2 h-2 rounded-full bg-accent animate-ping" />
+          <div className="w-2 h-2 rounded-full bg-[#f97316] animate-ping" />
           <span className="text-sm font-medium text-purple-200 tracking-wide">
             Forging the Next Generation
           </span>
@@ -45,12 +45,12 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-display font-bold tracking-tight mb-8 text-white drop-shadow-2xl whitespace-nowrap"
+          className="text-4xl sm:text-8xl md:text-7xl lg:text-9xl font-display font-bold tracking-tight mb-8 text-white drop-shadow-2xl whitespace-nowrap"
         >
           Code
           <span className="relative inline-block">
-            <span className="absolute -inset-2 bg-gradient-to-r from-purple-400 via-accent to-rose-400 opacity-20 blur-xl"></span>
-            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-accent to-rose-400">
+            <span className="absolute -inset-2 bg-gradient-to-r from-purple-400 via-[#f97316] to-rose-400 opacity-20 blur-xl"></span>
+            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-[#f97316] to-rose-400">
               Kea
             </span>
           </span>
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
         >
           <button
             onClick={(e) => handleScroll(e, "#bundle")}
-            className="group relative px-8 py-4 bg-accent text-white font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] active:scale-95 z-50"
+            className="group relative px-8 py-4 bg-[#f97316] text-white font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] active:scale-95 z-50"
           >
             <span className="relative z-10 flex items-center gap-2">
               View Business Plans
@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
 
           <button
             onClick={(e) => handleScroll(e, "#contact")}
-            className="px-8 py-4 bg-transparent border border-purple-500/50 text-white font-medium rounded-full hover:bg-purple-500/10 hover:border-accent hover:text-accent transition-all duration-300 shadow-[0_0_15px_rgba(147,51,234,0.1)] hover:shadow-[0_0_30px_rgba(147,51,234,0.4)] active:scale-95 z-50"
+            className="px-8 py-4 bg-transparent border border-purple-500/50 text-white font-medium rounded-full hover:bg-purple-500/10 hover:border-[#f97316] hover:text-[#f97316] transition-all duration-300 shadow-[0_0_15px_rgba(147,51,234,0.1)] hover:shadow-[0_0_30px_rgba(147,51,234,0.4)] active:scale-95 z-50"
           >
             Get a Quote
           </button>

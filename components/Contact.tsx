@@ -120,7 +120,7 @@ const Contact: React.FC<ContactProps> = ({ selectedService }) => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
       <div className="absolute bottom-0 left-0 w-full h-[50vh] bg-gradient-to-t from-purple-900/20 to-transparent" />
-      <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+      <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#f97316]/10 rounded-full blur-[100px]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -196,7 +196,7 @@ const Contact: React.FC<ContactProps> = ({ selectedService }) => {
                   className={`w-full px-4 py-3 bg-black/60 border rounded-xl text-white ${
                     phoneError
                       ? "border-red-500"
-                      : "border-white/10 focus:border-accent"
+                      : "border-white/10 focus:border-[#f97316]"
                   }`}
                 />
 
@@ -247,7 +247,7 @@ const Contact: React.FC<ContactProps> = ({ selectedService }) => {
                   ? "bg-green-600"
                   : status === "error"
                     ? "bg-red-600"
-                    : "bg-accent hover:bg-orange-400"
+                    : "bg-[#f97316] hover:bg-orange-400"
               } disabled:opacity-40`}
             >
               <AnimatePresence mode="wait">

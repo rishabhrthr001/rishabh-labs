@@ -12,7 +12,7 @@ const Testimonials: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">
+          <span className="text-[#f97316] font-bold tracking-wider uppercase text-sm mb-2 block">
             Client Success
           </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white">

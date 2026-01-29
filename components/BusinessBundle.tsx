@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -9,7 +9,8 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { BUSINESS_BUNDLES } from "../data/content";
+import { getBusinessBundles, Currency } from "../data/content";
+import { getUserGeo } from "./utils/geoLocation";
 
 interface BusinessBundleProps {
   onSelectService: (service: string) => void;
@@ -18,6 +19,20 @@ interface BusinessBundleProps {
 const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // default INR so first render matches old UI
+  const [currency, setCurrency] = useState<Currency>("INR");
+
+  useEffect(() => {
+    const detect = async () => {
+      const geo = await getUserGeo();
+      setCurrency(geo.currency);
+    };
+
+    detect();
+  }, []);
+
+  const bundles = getBusinessBundles(currency);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -36,7 +51,6 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
 
     onSelectService(id);
 
-    // Always go home first (if on another route)
     navigate("/");
 
     setTimeout(() => {
@@ -54,7 +68,7 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         {/* SECTION HEADER */}
         <div className="text-center mb-12">
-          <span className="text-accent font-bold uppercase text-xs tracking-wider block mb-1">
+          <span className="text-[#f97316] font-bold uppercase text-xs tracking-wider block mb-1">
             Exclusive Packages
           </span>
 
@@ -71,7 +85,7 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
           <div className="hidden md:block absolute top-1/2 -left-8 -translate-y-1/2 z-20">
             <button
               onClick={() => scroll("left")}
-              className="p-3 rounded-full bg-surface border border-purple-500/30 text-white hover:bg-purple-900/20 hover:border-accent duration-200 shadow-md"
+              className="p-3 rounded-full bg-surface border border-purple-500/30 text-white hover:bg-purple-900/20 hover:border-[#f97316] duration-200 shadow-md"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
@@ -80,7 +94,7 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
           <div className="hidden md:block absolute top-1/2 -right-8 -translate-y-1/2 z-20">
             <button
               onClick={() => scroll("right")}
-              className="p-3 rounded-full bg-surface border border-purple-500/30 text-white hover:bg-purple-900/20 hover:border-accent duration-200 shadow-md"
+              className="p-3 rounded-full bg-surface border border-purple-500/30 text-white hover:bg-purple-900/20 hover:border-[#f97316] duration-200 shadow-md"
             >
               <ArrowRight className="w-5 h-5" />
             </button>
@@ -94,7 +108,7 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
               scroll-smooth py-6
             "
           >
-            {BUSINESS_BUNDLES.map((plan) => (
+            {bundles.map((plan) => (
               <motion.div
                 key={plan.id}
                 initial={{ opacity: 0, scale: 0.96 }}
@@ -140,7 +154,7 @@ const BusinessBundle: React.FC<BusinessBundleProps> = ({ onSelectService }) => {
                       <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                         {plan.price}
                       </span>
-                      <div className="text-[9px] sm:text-[10px] text-accent font-mono mt-1 uppercase">
+                      <div className="text-[9px] sm:text-[10px] text-[#f97316] font-mono mt-1 uppercase">
                         One-time Investment
                       </div>
                     </div>

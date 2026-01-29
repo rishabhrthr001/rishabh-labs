@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Twitter,
   Linkedin,
@@ -10,9 +10,26 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import { NAV_LINKS } from "../data/content";
+import { getUserGeo } from "./utils/geoLocation";
 
 const Footer: React.FC = () => {
   const navigate = useNavigate();
+
+  const [phone, setPhone] = useState("+91-8447351776");
+
+  useEffect(() => {
+    const detect = async () => {
+      const geo = await getUserGeo();
+
+      if (geo.countryCode === "IN") {
+        setPhone("+91-8447351776");
+      } else {
+        setPhone("+91 92202 87314");
+      }
+    };
+
+    detect();
+  }, []);
 
   const goHomeAndScroll = (selector?: string) => {
     navigate("/");
@@ -42,7 +59,7 @@ const Footer: React.FC = () => {
               onClick={() => goHomeAndScroll("#hero")}
               className="text-2xl font-display font-bold tracking-tighter text-white mb-4 block w-fit"
             >
-              Code<span className="text-accent">Kea</span>
+              Code<span className="text-[#f97316]">Kea</span>
             </button>
 
             <p className="text-gray-400 max-w-sm mb-4">
@@ -54,18 +71,18 @@ const Footer: React.FC = () => {
             <div className="space-y-2 mb-6">
               <a
                 href="mailto:contact@codekea.com"
-                className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors text-sm w-fit"
+                className="flex items-center gap-2 text-gray-400 hover:text-[#f97316] transition-colors text-sm w-fit"
               >
                 <Mail className="w-4 h-4" />
                 contact@codekea.com
               </a>
 
               <a
-                href="tel:+918447351776"
-                className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors text-sm w-fit"
+                href={`tel:${phone.replace(/\s|-/g, "")}`}
+                className="flex items-center gap-2 text-gray-400 hover:text-[#f97316] transition-colors text-sm w-fit"
               >
                 <Phone className="w-4 h-4" />
-                +91-8447351776
+                {phone}
               </a>
             </div>
 
@@ -74,7 +91,7 @@ const Footer: React.FC = () => {
                 <a
                   key={i}
                   href="#"
-                  className="text-gray-400 hover:text-accent transition-colors"
+                  className="text-gray-400 hover:text-[#f97316] transition-colors"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
@@ -97,7 +114,7 @@ const Footer: React.FC = () => {
                         goHomeAndScroll(link.href);
                       }
                     }}
-                    className="text-gray-400 hover:text-accent transition-colors text-sm"
+                    className="text-gray-400 hover:text-[#f97316] transition-colors text-sm"
                   >
                     {link.name}
                   </button>
@@ -114,7 +131,7 @@ const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => navigate("/legal/privacy")}
-                  className="text-gray-400 hover:text-accent transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#f97316] transition-colors text-sm"
                 >
                   Privacy Policy
                 </button>
@@ -123,7 +140,7 @@ const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => navigate("/legal/terms")}
-                  className="text-gray-400 hover:text-accent transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#f97316] transition-colors text-sm"
                 >
                   Terms of Service
                 </button>
@@ -132,7 +149,7 @@ const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => navigate("/legal/cookie")}
-                  className="text-gray-400 hover:text-accent transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#f97316] transition-colors text-sm"
                 >
                   Cookie Policy
                 </button>
